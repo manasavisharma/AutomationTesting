@@ -11,5 +11,7 @@ public class Template {
         driver.manage().window().maximize();
         driver.get("https://the-internet.herokuapp.com/basic_auth");
 
+        System.out.println("NEW TEST");
+
     }
 }
