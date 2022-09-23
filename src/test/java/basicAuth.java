@@ -1,34 +1,42 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class basicAuth {
 
     public static void main(String[] args) throws InterruptedException {
 
-        WebDriverManager.chromedriver().setup();
-        ChromeDriver driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\pc\\Downloads\\chromedriver_win32\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://the-internet.herokuapp.com/");
+//        driver.get("https://the-internet.herokuapp.com/");
 
-        driver.findElement(By.xpath("//a[contains(text(),'Basic Auth')]")).click();
+        //Set the username
+        String username = "admin";
 
-        Alert alt = driver.switchTo().alert();
-        String altmsg = driver.switchTo().alert().getText();
-        Thread.sleep(2000);
-        System.out.println(altmsg);
-        Thread.sleep(2000);
-        alt.accept();
+        //Set the password
+        String password = "admin";
 
-        //press tab
-        //enter password
-        //press tab and click on sign in button
-        //or press tab 2 times to cancel the login
+
+        String URL = "https://" +username +":" +password +"@"+ "the-internet.herokuapp.com/basic_auth";
+        driver.get(URL);
+
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofMillis(2000));
+        String title = driver.getTitle();
+
+        System.out.println("The page title is "+title);
+        String text = driver.findElement(By.tagName("p")).getText();
+        System.out.println("The test present in page is ==> "+text);
+
+        driver.close();
+        driver.quit();
         
     }
 
