@@ -18,26 +18,30 @@ public class dynamicControls {
 
 //        WebElement checkbox = driver.findElement
 //                (By.xpath("//body/div[2]/div[1]/div[1]/form[1]/div[1]/input[1]"));
+        WebElement checkbox = driver.findElement(By.cssSelector("div#checkbox input"));
+        checkbox.click();
 
-//        if(checkbox.isSelected()){
-//            driver.findElement(By.xpath("//button[contains(text(),'Remove')]")).click();
-//            WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000));
-//            wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//button[contains(text(),'Add')]"))));
-//        } else {
+        if(checkbox.isSelected()){
+            driver.findElement(By.xpath("//button[contains(text(),'Remove')]")).click();
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000));
+            wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//button[contains(text(),'Add')]"))));
+        }
+//        else {
 //            Thread.sleep(3000);
 //            checkbox.click();
+//            Thread.sleep(2000);
 //            driver.findElement(By.xpath("//button[contains(text(),'Remove')]")).click();
 //            WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000));
 //            wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//button[contains(text(),'Add')]"))));
 //        }
 
-        driver.findElement(By.xpath("//button[contains(text(),'Enable')]")).click();
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000));
-            wait.until(ExpectedConditions.visibilityOfElementLocated
-                    ((By.xpath("//button[contains(text(),'Disable')]"))));
-            driver.findElement
-                    (By.xpath("//body/div[2]/div[1]/div[1]/form[2]/input[1]")).sendKeys("Hello");
-            Thread.sleep(2000);
-            driver.quit();
+//        driver.findElement(By.xpath("//button[contains(text(),'Enable')]")).click();
+//            WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000));
+//            wait.until(ExpectedConditions.visibilityOfElementLocated
+//                    ((By.xpath("//button[contains(text(),'Disable')]"))));
+//            driver.findElement
+//                    (By.xpath("//body/div[2]/div[1]/div[1]/form[2]/input[1]")).sendKeys("Hello");
+//            Thread.sleep(2000);
+//            driver.quit();
     }
 }

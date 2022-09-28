@@ -1,6 +1,7 @@
 import org.checkerframework.checker.units.qual.K;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.awt.*;
@@ -16,15 +17,14 @@ public class fileUpload {
         driver.manage().window().maximize();
         driver.get("https://the-internet.herokuapp.com/upload");
 
-        Robot rb = new Robot();
-//        driver.findElement(By.id("file-upload")).click();
-//        driver.findElement(By.xpath(".//input[@id='file-upload']")).click();
-        driver.findElement(By.cssSelector("#file-upload")).click();
+//        WebElement upload = driver.findElement(By.cssSelector("#file-upload"));
+        driver.findElement(By.cssSelector("#file-upload"));
+//        upload.sendKeys("C:\\Users\\pc\\Desktop\\To-Do");
 
-        Thread.sleep(3000);
         StringSelection filepath =new StringSelection("C:\\Users\\pc\\Desktop\\To-Do");
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 
+        Robot rb = new Robot();
         rb.keyPress(KeyEvent.VK_CONTROL);
         rb.keyPress(KeyEvent.VK_V);
 
