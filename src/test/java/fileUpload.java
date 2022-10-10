@@ -17,23 +17,8 @@ public class fileUpload {
         driver.manage().window().maximize();
         driver.get("https://the-internet.herokuapp.com/upload");
 
-//        WebElement upload = driver.findElement(By.cssSelector("#file-upload"));
-        driver.findElement(By.cssSelector("#file-upload"));
-//        upload.sendKeys("C:\\Users\\pc\\Desktop\\To-Do");
-
-        StringSelection filepath =new StringSelection("C:\\Users\\pc\\Desktop\\To-Do");
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
-
-        Robot rb = new Robot();
-        rb.keyPress(KeyEvent.VK_CONTROL);
-        rb.keyPress(KeyEvent.VK_V);
-
-        rb.keyRelease(KeyEvent.VK_CONTROL);
-        rb.keyRelease(KeyEvent.VK_V);
-
-        rb.keyPress(KeyEvent.VK_ENTER);
-        rb.keyRelease(KeyEvent.VK_ENTER);
-
+        WebElement upload = driver.findElement(By.cssSelector("#file-upload"));
+        upload.sendKeys("C:\\Users\\SONY\\Desktop\\PatientFeatureFile.txt");
         driver.findElement(By.id("file-submit")).click();
 
     }

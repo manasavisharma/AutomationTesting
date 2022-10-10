@@ -8,16 +8,15 @@ public class slider {
 
     public static void main(String[] args) throws InterruptedException {
 
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\pc\\Downloads\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\SONY\\Downloads\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://the-internet.herokuapp.com/horizontal_slider");
 
 //        WebElement slider = driver.findElement(By.cssSelector(".sliderContainer"));
-
         WebElement slider = driver.findElement(By.xpath("//body[1]/div[2]/div[1]/div[1]/div[1]/input[1]"));
         Actions action = new Actions(driver);
-        action.dragAndDropBy(slider, 0, 5).perform();  //not moving
+        action.dragAndDropBy(slider, 100, 5).perform();
         Thread.sleep(3000);
         driver.quit();
 
